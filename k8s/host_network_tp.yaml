@@ -1,0 +1,10 @@
+# TP — pod shares host network namespace (misconfig)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sniffer
+spec:
+  hostNetwork: true
+  containers:
+    - name: app
+      image: alpine:3.19

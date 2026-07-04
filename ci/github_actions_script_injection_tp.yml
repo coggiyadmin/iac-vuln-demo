@@ -1,0 +1,8 @@
+# TP — untrusted issue title interpolated into run (CWE-94 GHA script injection)
+name: triage
+on: issues
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "New issue: ${{ github.event.issue.title }}"

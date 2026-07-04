@@ -1,0 +1,9 @@
+# SAFE — pull_request (no secrets) for untrusted code
+name: build
+on: pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make build

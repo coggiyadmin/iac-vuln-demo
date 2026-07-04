@@ -1,0 +1,10 @@
+# SAFE — isolated pod network
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sniffer
+spec:
+  hostNetwork: false
+  containers:
+    - name: app
+      image: alpine:3.19

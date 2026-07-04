@@ -1,0 +1,4 @@
+# SAFE — vendored, checksum-verified local copy
+FROM alpine:3.19
+COPY install.sh /tmp/install.sh
+RUN echo "abc123  /tmp/install.sh" | sha256sum -c - && sh /tmp/install.sh

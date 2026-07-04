@@ -1,0 +1,10 @@
+# SAFE — untrusted input passed via env, not inlined
+name: triage
+on: issues
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          TITLE: ${{ github.event.issue.title }}
+        run: echo "New issue: $TITLE"

