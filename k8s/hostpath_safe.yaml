@@ -1,0 +1,15 @@
+# SAFE — emptyDir only
+apiVersion: v1
+kind: Pod
+metadata:
+  name: reader
+spec:
+  containers:
+    - name: app
+      image: alpine:3.19
+      volumeMounts:
+        - name: data
+          mountPath: /data
+  volumes:
+    - name: data
+      emptyDir: {}

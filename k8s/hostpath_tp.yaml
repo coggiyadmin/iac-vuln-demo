@@ -1,0 +1,16 @@
+# TP — hostPath mount (CWE-22 / misconfig)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: reader
+spec:
+  containers:
+    - name: app
+      image: alpine:3.19
+      volumeMounts:
+        - name: host
+          mountPath: /host
+  volumes:
+    - name: host
+      hostPath:
+        path: /etc

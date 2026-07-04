@@ -1,0 +1,8 @@
+# SAFE — pinned action SHA
+name: ci
+on: push
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88fadbc2f1c1c4b8b8b8b8b8

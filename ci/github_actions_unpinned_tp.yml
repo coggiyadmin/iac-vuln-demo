@@ -1,0 +1,8 @@
+# TP — unpinned third-party action ref
+name: ci
+on: push
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: some-org/scan-action@main
