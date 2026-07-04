@@ -1,0 +1,12 @@
+# SAFE — dropped capabilities
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker
+spec:
+  containers:
+    - name: app
+      image: alpine:3.19
+      securityContext:
+        allowPrivilegeEscalation: false
+        runAsNonRoot: true

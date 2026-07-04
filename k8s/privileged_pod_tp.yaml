@@ -1,0 +1,11 @@
+# TP — privileged container (CWE-250)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker
+spec:
+  containers:
+    - name: app
+      image: alpine:3.19
+      securityContext:
+        privileged: true

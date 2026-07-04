@@ -1,0 +1,4 @@
+# SAFE — verified checksum before install
+FROM alpine:3.19
+RUN wget -O /tmp/setup.sh https://install.example.com/setup.sh && \
+    echo 'deadbeef  /tmp/setup.sh' | sha256sum -c - && sh /tmp/setup.sh
