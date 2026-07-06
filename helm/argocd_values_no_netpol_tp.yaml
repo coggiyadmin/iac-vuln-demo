@@ -1,0 +1,13 @@
+# TP — Argo CD Helm default: NetworkPolicy disabled (Synacktiv 2026-07).
+# Helm chart values.yaml fragment — repo-server reachable from any pod.
+networkPolicy:
+  create: false
+  defaultDenyIngress: false
+repoServer:
+  service:
+    type: ClusterIP
+  metrics:
+    enabled: true
+redis:
+  auth:
+    enabled: true

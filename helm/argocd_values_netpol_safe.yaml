@@ -1,0 +1,10 @@
+# SAFE — NetworkPolicy enabled; repo-server ingress limited to control-plane components.
+networkPolicy:
+  create: true
+  defaultDenyIngress: true
+repoServer:
+  service:
+    type: ClusterIP
+redis:
+  auth:
+    enabled: true

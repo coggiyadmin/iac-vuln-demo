@@ -1,0 +1,28 @@
+# TP — Redis cache reachable without NetworkPolicy; auth optional in values.
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-redis
+  labels:
+    app.kubernetes.io/name: argocd-redis
+spec:
+  type: ClusterIP
+  ports:
+    - name: redis
+      port: 6379
+      targetPort: 6379
+  selector:
+    app.kubernetes.io/name: argocd-redis
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: argocd-redis
+  labels:
+    app.kubernetes.io/name: argocd-redis
+spec:
+  containers:
+    - name: redis
+      image: redis:7.2-alpine
+      ports:
+        - containerPort: 6379

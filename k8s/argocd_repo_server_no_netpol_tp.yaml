@@ -1,0 +1,28 @@
+# TP — repo-server Service exposed cluster-wide; no NetworkPolicy (8081 gRPC).
+apiVersion: v1
+kind: Service
+metadata:
+  name: argocd-repo-server
+  labels:
+    app.kubernetes.io/name: argocd-repo-server
+spec:
+  type: ClusterIP
+  ports:
+    - name: grpc
+      port: 8081
+      targetPort: 8081
+  selector:
+    app.kubernetes.io/name: argocd-repo-server
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: argocd-repo-server
+  labels:
+    app.kubernetes.io/name: argocd-repo-server
+spec:
+  containers:
+    - name: repo-server
+      image: quay.io/argoproj/argocd:v2.13.3
+      ports:
+        - containerPort: 8081
